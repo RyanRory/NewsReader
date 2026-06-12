@@ -75,7 +75,7 @@ class GNewsModelsTest {
 
     @Test
     fun `maps to NewsArticle correctly`() {
-        val article    = json.decodeFromString<GNewsResponse>(rawJson).articles.first()
+        val article = json.decodeFromString<GNewsResponse>(rawJson).articles.first()
         val newsArticle = article.toNewsArticle()
 
         assertEquals(article.id,          newsArticle.id)
@@ -90,9 +90,9 @@ class GNewsModelsTest {
 
     @Test
     fun `maps isStarred correctly when url is in starred set`() {
-        val article     = json.decodeFromString<GNewsResponse>(rawJson).articles.first()
-        val starredUrls = setOf(article.url)
-        val newsArticle = article.toNewsArticle(starredUrls)
+        val article = json.decodeFromString<GNewsResponse>(rawJson).articles.first()
+        val starredIds = setOf(article.id)
+        val newsArticle = article.toNewsArticle(starredIds)
 
         assertTrue(newsArticle.isStarred)
     }
@@ -103,7 +103,7 @@ class GNewsModelsTest {
             "\"description\": \"Apple's forthcoming M5 chip has seemingly leaked as part of a new iPad Pro hardware leak. Here's what its performance looks like in testing.\"",
             "\"description\": null"
         )
-        val article     = json.decodeFromString<GNewsResponse>(jsonWithNullDesc).articles.first()
+        val article = json.decodeFromString<GNewsResponse>(jsonWithNullDesc).articles.first()
         val newsArticle = article.toNewsArticle()
 
         assertEquals("", newsArticle.description)
