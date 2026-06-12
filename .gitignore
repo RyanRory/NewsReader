@@ -1,0 +1,16 @@
+# Xcode
+.build/
+DerivedData/
+*.xcuserstate
+xcuserdata/
+
+# Gradle / KMP
+.gradle/
+build/
+.kotlin/
+
+# Local config (API key)
+ApiConfig.kt
+
+# macOS
+.DS_Store

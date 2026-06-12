@@ -1,0 +1,3 @@
+package com.uptick.newsreader
+
+internal const val GNEWS_API_KEY = "YOUR_API_KEY_HERE"

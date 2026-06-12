@@ -1,0 +1,26 @@
+CREATE TABLE StarredArticle (
+    id            TEXT NOT NULL PRIMARY KEY,
+    title         TEXT NOT NULL,
+    description   TEXT NOT NULL,
+    url           TEXT NOT NULL,
+    imageUrl      TEXT,
+    publishedAt   TEXT NOT NULL,
+    lang          TEXT NOT NULL,
+    sourceName    TEXT NOT NULL
+);
+
+selectAll:
+SELECT * FROM StarredArticle;
+
+selectById:
+SELECT * FROM StarredArticle WHERE id = ?;
+
+insertOrReplace:
+INSERT OR REPLACE INTO StarredArticle
+VALUES (?, ?, ?, ?, ?, ?, ?, ?);
+
+deleteById:
+DELETE FROM StarredArticle WHERE id = ?;
+
+countById:
+SELECT COUNT(*) FROM StarredArticle WHERE id = ?;
